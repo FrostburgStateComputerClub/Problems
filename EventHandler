@@ -1,0 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+
+import java.awt.event.KeyListener;
+import java.util.LinkedList;
+
+/**
+ *
+ * @author mdameron0
+ */
+public class EventHandler implements KeyListener{
+
+    LinkedList<Character> pressed;
+    
+    @Override
+    public void keyTyped(java.awt.event.KeyEvent e) {
+        
+        
+    }
+
+    @Override
+    public void keyPressed(java.awt.event.KeyEvent e) {
+
+        if (!pressed.contains(e.getKeyChar())){
+            pressed.add(e.getKeyChar());
+        }
+        
+    }
+
+    @Override
+    public void keyReleased(java.awt.event.KeyEvent e) {
+       
+        if (pressed.contains(e.getKeyChar())){
+            pressed.remove(pressed.indexOf(e.getKeyChar()));
+        }
+    }
+
+    public EventHandler(LinkedList<Character> pl) {
+        pressed = pl;
+    }
+
+
+}
